@@ -8,7 +8,7 @@ class Receip
   Receip(){
     this._number = 22;
     this._date = new DateTime(2000,07,09);
-    this._sum = 0;
+    this._sum = 4;
     _count++;
   }
   Receip.p(this._number,this._date,this._sum){

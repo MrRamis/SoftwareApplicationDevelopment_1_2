@@ -3,13 +3,18 @@ import 'dart:math';
 
 void main() {
   var list = List.generate(
-      15, (int index) => (Random().nextInt(31) % 31 - 15), growable: true);
-  print("\n1) Программа для вычисления значения выражения:"
-      "\n2) Поиск суммы и количества отрицательных на четных местах"
-      "\n3) Поиск максимального из кратных 3, стоящих на нечетных местах"
-      "\n4) Сортировка по возрастанию"
-      "\n5) Удаление элементов, кратных 5"
-      "\n7) Выход");
+    15,
+    (int index) => (Random().nextInt(31) % 31 - 15),
+    growable: true,
+  );
+  print(
+    "\n1) Программа для вычисления значения выражения:"
+    "\n2) Поиск суммы и количества отрицательных на четных местах"
+    "\n3) Поиск максимального из кратных 3, стоящих на нечетных местах"
+    "\n4) Сортировка по возрастанию"
+    "\n5) Удаление элементов, кратных 5"
+    "\n7) Выход",
+  );
   while (true) {
     print("Введите команду: ");
     String? command = stdin.readLineSync();
@@ -26,24 +31,47 @@ void main() {
         var z = double.tryParse(zS!);
         if (x != null && y != null && z != null) {
           print("Ответ: ");
-          print((((6) / (x! - 0.75 * y!)) + ((5 * y) / (1 - z!))));
-        }else
-          {
-            print("Введены не цифры");
-          }
-      case "2":
-        int sum = 0;
-        int negative = 0;
-        for (int i = 0; i < list.length; i++) {
-          if (i % 2 != 0 && list[i] % 3 == 0) {
-            sum += list[i];
-            negative++;
-          }
+          print(pow((((6) / (x - 0.75 * y)) + ((5 * y) / (1 - z))), 0.25));
+        } else {
+          print("Введены не цифры");
         }
-        print("Сумма: $sum; Количество отрицательных чисел: $negative;");
-        print(list);
+      case "2":
+        print("Ведите: a");
+        var aS = stdin.readLineSync();
+        print("Ведите: b");
+        var bS = stdin.readLineSync();
+        print("Ведите: c");
+        var cS = stdin.readLineSync();
+        var a = double.tryParse(aS!);
+        var b = double.tryParse(bS!);
+        var c = double.tryParse(cS!);
+        if (a != null && b != null && c != null) {
+          if (a + b == 0 || a + c == 0 || b + c == 0) {
+            print("Есть пара взаимно противоположных чисел");
+          } else
+            print("Нет пары взаимно противоположных чисел");
+        } else {
+          print("Введены не цифры");
+        }
       case "3":
-        print(list);
+        print("Ведите: a");
+        var aS = stdin.readLineSync();
+        print("Ведите: b");
+        var bS = stdin.readLineSync();
+        print("Ведите: c");
+        var cS = stdin.readLineSync();
+        var a = double.tryParse(aS!);
+        var b = double.tryParse(bS!);
+        var c = double.tryParse(cS!);
+        if (a != null && b != null && c != null) {
+          if (a + b == 0 || a + c == 0 || b + c == 0) {
+            print("Есть пара взаимно противоположных чисел");
+          } else
+            print("Нет пары взаимно противоположных чисел");
+        } else {
+          print("Введены не цифры");
+        }
+
       case "4":
         list.sort();
         print(list);
@@ -52,8 +80,7 @@ void main() {
         print(list);
       case "6":
         for (int i = 0; i < list.length; i++) {
-          if (i % 2 != 0)
-            list[i + 1] = 100;
+          if (i % 2 != 0) list[i + 1] = 100;
         }
         print(list);
       case "7":
