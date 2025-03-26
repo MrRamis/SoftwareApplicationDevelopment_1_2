@@ -60,7 +60,7 @@ void _addReceip(List<Receip> listReceip) {
       print("Ведите: номер квинтации");
       var numberS = stdin.readLineSync();
       var number = int.tryParse(numberS!);
-      print("Ведите: дату");
+      print("Ведите: дату ГГГГ-ММ-ДД ЧЧ:ММ:СС.МЛС");
       var dateS = stdin.readLineSync();
       var date = DateTime.tryParse(dateS!);
       print("Ведите: сумму");
