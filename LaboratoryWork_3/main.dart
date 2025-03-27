@@ -2,18 +2,18 @@ import 'dart:io';
 import 'dart:convert';
 
 void main() async {
-
   await _gataGenerate();
   _worc2();
   var applicant = await _worc3();
   for (final person in applicant) {
     print(person);
   }
+  String? command = stdin.readLineSync();
 }
 
 Future<void> _gataGenerate() async {
   File file = new File("applicants.json");
-  if (!file.existsSync()){
+  if (!file.existsSync()) {
     final people = [
       Applicant(
         new FullName("yuy", "name", "patronymic"),
