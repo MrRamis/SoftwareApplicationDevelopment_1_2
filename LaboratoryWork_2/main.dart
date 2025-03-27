@@ -4,20 +4,20 @@ import 'receip.dart';
 
 void main() {
   List<Receip> listReceip = [];
-  /*  listReceip.add(new Receip());
-  listReceip.add(new Receip());
-  listReceip.add(new Receip());
-  listReceip.add(new Receip());
-  listReceip.add(new Receip());
-  listReceip.add(new Receip());
-  listReceip.add(new Receip());*/
+  //  listReceip.add(new Receip());
+  // listReceip.add(new Receip());
+  // listReceip.add(new Receip());
+  // listReceip.add(new Receip());
+  // listReceip.add(new Receip());
+  // listReceip.add(new Receip());
+  // listReceip.add(new Receip());
   print(
-    """) Количество объектов и значения переменных экземпляра каждого объекта пользователь вводит с клавиатуры.   
+    """1) Количество объектов и значения переменных экземпляра каждого объекта пользователь вводит с клавиатуры.   
 2) Выводится на экран количество созданных объектов с использованием соответствующего статического метода.
 3) выводится информация обо всех объектах.
 4) выводится информация об объектах, удовлетворяющих первому условию.
 5) выводится информация об объектах, удовлетворяющих второму условию.
-6) Выход .
+6) Выход.
 """,
   );
   while (true) {
@@ -26,11 +26,11 @@ void main() {
       case "1":
         _addReceip(listReceip);
       case "2":
-        if (listReceip.isEmpty) print(listReceip[0].getCount());
+        if (!listReceip.isEmpty) print(listReceip[0].getCount());
       case "3":
-        if (listReceip.isEmpty) listReceip.forEach((e) => e.show());
+        if (!listReceip.isEmpty) listReceip.forEach((e) => e.show());
       case "4":
-        if (listReceip.isEmpty) {
+        if (!listReceip.isEmpty) {
           double maxSum = 0.0;
           listReceip.forEach((n) {
             if (n.getSum() > maxSum) maxSum = n.getSum();

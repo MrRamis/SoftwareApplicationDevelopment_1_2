@@ -14,9 +14,9 @@ void main() {
       case "1":
         instruction();
       case "2":
-        instruction();
+        entering_waterfall(listWaterfall);
       case "3":
-        instruction();
+        entering_sea(listSea);
       case "4":
         print_list(listSea, listWaterfall);
       case "5":
@@ -30,12 +30,12 @@ void main() {
 }
 void instruction(){
   print("Команды:"
-      "\nспрвка 1"
-      "\nВвести моря 2"
-      "\nВвести горы 3"
-      "\nВывести все элементы масивов 4"
-      "\nСортировать массивы 5"
-      "\nВыход из программы 6");
+      "\nсправка: 1"
+      "\nВвести моря: 2"
+      "\nВвести горы: 3"
+      "\nВывести все элементы масивов: 4"
+      "\nСортировать массивы: 5"
+      "\nВыход из программы: 6");
 }
 void sort(List<Sea> listSea,List<Waterfall> listWaterfall){
   sort_sea(listSea);
@@ -49,23 +49,61 @@ void sort_waterfall(List<Waterfall> listWaterfall){
   listWaterfall.sort((a, b) => a.height.compareTo(b.height));
 }
 void entering_sea(List<Sea> listSea){
-
+  bool isEntering = true;
+  print("Команды:"
+      "\nВыход из добавления: 1"
+      "\nДобавить моря: 2"
+  );
+  while (isEntering) {
+    String? command = stdin.readLineSync();
+    switch (command) {
+      case "1":
+        isEntering = false;
+      case "2":
+        {
+          print("Название моря");
+          String? name = stdin.readLineSync();
+          print("название океан");
+          String? ocean = stdin.readLineSync();
+          print("Какая площадь");
+          String? square = stdin.readLineSync();
+          var squareD = double.tryParse(square!);
+          if (squareD != null && name != null && ocean != null) {
+            listSea.add(new Sea(name,squareD, ocean));
+          } else {
+            print("Какоето поле введено не правильно");
+          }
+        }
+      default:
+        print("Непонятная команда!");
+    }
+  }
 }
 void entering_waterfall(List<Waterfall> listWaterfall){
   bool isEntering = true;
-  while(isEntering){
+  print("Команды:"
+      "\nВыход из добавления: 1"
+      "\nДобавить водопад: 2"
+  );
+  while (isEntering) {
     String? command = stdin.readLineSync();
-    switch(command){
+    switch (command) {
       case "1":
         isEntering = false;
-      case "2":{
-        print("Водопад");
+      case "2":
+        {
+          print("Название водопада");
         String? name = stdin.readLineSync();
-        print("Страна");
+        print("название страны");
         String? country = stdin.readLineSync();
-        print("Высота");
+        print("Какая высота");
         String? height = stdin.readLineSync();
-
+          var heightD = double.tryParse(height!);
+          if (heightD != null && name != null && country != null) {
+            listWaterfall.add(new Waterfall(name,heightD, country));
+          } else {
+            print("Какоето поле введено не правильно");
+          }
       }
       default:
         print("Непонятная команда!");
