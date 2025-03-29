@@ -87,7 +87,7 @@
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Флажок";
             this.ResumeLayout(false);
             this.PerformLayout();
 
